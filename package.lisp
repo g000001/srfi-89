@@ -4,7 +4,7 @@
 
 (defpackage :srfi-89
   (:use)
-  (:export))
+  (:export :define* :lambda*))
 
 (defpackage :srfi-89.internal
   (:use :srfi-89 :cl :fiveam :srfi-23 :srfi-5 :srfi-88)
