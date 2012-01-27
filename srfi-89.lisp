@@ -241,7 +241,7 @@
                                            '() )
                                 $args )
                         (let* ,bindings
-                          (declare (ignore ,$args))
+                          (declare (ignorable ,$args))
                           ,@body )))))))
     (apply #'expand (parse-formals formals)) ))
 
