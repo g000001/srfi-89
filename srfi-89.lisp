@@ -271,15 +271,6 @@
                       (loop2 (cdr lst))))))
             v)))))
 
-(define-function ($hash-keyword key n)
-  (let ((str (keyword->string key)))
-    (let loop ((h 0) (i 0))
-      (if (< i (string-length str))
-          (loop (modulo (+ (* h 65536) (char->integer (string-ref str i)))
-                        n)
-                (+ i 1))
-          h))))
-
 ;------------------------------------------------------------------------------
 
 ; Macro expander for lambda*.
