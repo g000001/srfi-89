@@ -1,6 +1,6 @@
 ;;;; srfi-89.lisp
 
-(cl:in-package :srfi-89.internal)
+(cl:in-package "https://github.com/g000001/srfi-89#internals")
 
 ;------------------------------------------------------------------------------
 

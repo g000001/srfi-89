@@ -1,8 +1,11 @@
-(cl:in-package :srfi-89.internal)
+(cl:in-package "https://github.com/g000001/srfi-89#internals")
+
 
 (def-suite srfi-89)
 
+
 (in-suite srfi-89)
+
 
 (defmacro isqu (x y)
   `(is (equal ,x ,y)))
@@ -20,6 +23,7 @@
                                            ',(nth 2 c) )))))))
         (c body (cdddr c)) )
        ((endp c) `(progn ,@(cdr ans))) ))
+
 
 (test define*
   ;;
@@ -57,17 +61,23 @@
 
 (defvar absent (list 'absent))
 
+
 (define-function (element tag content . attributes)
   (list "<" tag attributes ">"
         content
         "</" tag ">"))
 
+
 (define-function (escape value) value)
+
 
 (define-function (attribute name value)
   (if (eq? value absent)
       '()
-      (list " " name "=" (escape value)))) ; could be improved!
+      (list " " name "=" (escape value))))
+
+
+; could be improved!
 
 (define-function (make-html-styler tag)
   (lambda* ((:id          id          absent)
@@ -107,19 +117,45 @@
              (attribute "onkeydown" onkeydown)
              (attribute "onkeyup" onkeyup) )))
 
+
 (define-function html-b      (make-html-styler "b"))
+
+
 (define-function html-big    (make-html-styler "big"))
+
+
 (define-function html-cite   (make-html-styler "cite"))
+
+
 (define-function html-code   (make-html-styler "code"))
+
+
 (define-function html-dfn    (make-html-styler "dfn"))
+
+
 (define-function html-em     (make-html-styler "em"))
+
+
 (define-function html-i      (make-html-styler "i"))
+
+
 (define-function html-kbd    (make-html-styler "kbd"))
+
+
 (define-function html-samp   (make-html-styler "samp"))
+
+
 (define-function html-small  (make-html-styler "small"))
+
+
 (define-function html-strong (make-html-styler "strong"))
+
+
 (define-function html-tt     (make-html-styler "tt"))
+
+
 (define-function html-var    (make-html-styler "var"))
+
 
 (define* (|print| (:port port *standard-output*) . args)
   (let pr ((x args))
@@ -131,6 +167,7 @@
               (pr (vector->list x)))
              (:else
               (princ x port)))))
+
 
 (test |print|
   (is (string=
@@ -144,4 +181,5 @@
                   ))
        "<i id=water class=molecule><big>H</big><small>2</small><big>O</big></i>")))
 
-;;; eof
+
+;;; *EOF*

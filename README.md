@@ -1,4 +1,5 @@
-* SRFI-89: Optional positional and named parameters
+# SRFI 89 for CL: Optional positional and named parameters
+
 - Copyright (C) Marc Feeley (2006). All Rights Reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining
